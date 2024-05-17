@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+    
+    .content {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    form p {
+        margin: 10px 0;
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="radio"] {
+        margin-bottom: 15px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    button {
+        display: inline-block;
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    
+    .todo {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .todo p {
+        margin: 5px 0;
+    }
+    
+    .todo form {
+        display: inline-block;
+    }
+    
+    .todo button {
+        margin-left: 10px;
+    }
+    
+    input[type="submit"] {
+        background-color: #dc3545;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #c82333;
+    }
+    
+
+</style>
+<link rel="stylesheet" href="../static/styles.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Todo</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1>Update Todo</h1>
+    <div class="content">
+        <form action="{{ url_for('update', id=todo['_id']) }}" method="post">
+            <p>
+                <label for="task_description">Todo content:</label><br>
+            </p>
+            <p>
+                <input type="text" id="task_description" name="task_description" value="{{ todo['task_description'] }}" required>
+            </p>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

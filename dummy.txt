@@ -1,0 +1,70 @@
+db.inventory.find({$or:[{'staus:'A'},{qtu:{$lt:3}}]})
+db.inventory.find()--- with this i can find all 
+db.inventory.find({qty:{$lt:30}})--- with this i can find the inventory
+db.inventory.insertone()--- with this i can delete the inverntory one at a time 
+db.inventory.insertmany()---with this i can insert multiple items
+db.inventory.deleteone()-- with this i can delete the fields one at a time 
+db.inventory.deletemany()--- with this command we can delete the field at a time more then one 
+db.collection.remove()--- this is to remove the collection
+use--- this will use the db 
+dbs--- this will show all the dbs which are there..../
+
+opratores(-23-)
+
+db.collection.find({ "age": { $eq: 25 } });
+
+// this will find how can has age equal to 25
+db.collection.find({ "status": { $ne: "active" } });
+
+//In the fruit collection shown below, which contains the following documents, we will use $ne to match the documents whose quantity is not equal to 20
+db.collection.find({ "price": { $gt: 100 } });
+
+// this will  find the price which is greater then 100
+db.collection.find({ "age": { $gte: 18 } });
+
+//this will find the age which is greater then 18
+db.collection.find({ "price": { $lt: 100 } });
+
+//this will get the atleadt 100 is the price 
+db.collection.find({ "age": { $lte: 30 } });
+
+//this will find the atleadt 30 or equal to is the price.
+db.collection.find({ "status": { $in: ["active", "pending"] } });
+
+// this will find that int which has active or pending status
+db.collection.find({ "status": { $nin: ["active", "pending"] } });
+
+// this will find values of thoes which have active and age is above or equal 18
+db.collection.find({ $and: [{ "status": "active" }, { "age": { $gte: 18 } }] });
+
+//this wil find the values whichaare from this two.
+db.collection.find({ $or: [{ "status": "active" }, { "age": { $gte: 18 } }] });
+
+//this will find which are n
+db.collection.find({ "status": { $not: { $eq: "active" } } });
+//this is used to find 
+db.collection.find({ $nor: [{ "status": "active" }, { "age": { $gte: 18 } }] });
+
+db.collection.find({ "email": { $exists: true } });
+
+db.collection.find({ "age": { $type: "int" } });
+
+db.collection.find({ "name": { $regex: /^A/ } });
+
+db.collection.updateOne({ "_id": 1 }, { $set: { "status": "active" } });
+
+db.collection.updateOne({ "_id": 1 }, { $unset: { "status": "" } });
+
+db.collection.updateOne({ "_id": 1 }, { $inc: { "age": 1 } });
+
+db.collection.updateOne({ "_id": 1 }, { $push: { "items": "item1" } });
+
+db.collection.updateOne({ "_id": 1 }, { $pull: { "items": "item1" } });
+
+db.collection.updateOne({ "_id": 1 }, { $addToSet: { "items": "item1" } });
+
+    db.collection.updateOne({ "_id": 1 }, { $pop: { "items": 1 } }); // Removes last item
+    db.collection.updateOne({ "_id": 1 }, { $pop: { "items": -1 } }); // Removes first item
+
+db.collection.updateOne({ "_id": 1 }, { $rename: { "oldFieldName": "newFieldName" } });
+
